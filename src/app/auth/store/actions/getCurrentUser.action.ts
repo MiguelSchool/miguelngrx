@@ -1,15 +1,15 @@
 import {createAction, props} from '@ngrx/store';
 
-import {ActionTypes} from 'src/app/auth/store/actionTypes';
+import {ActionTypesAuth} from 'src/app/auth/store/actionTypesAuth';
 import {CurrentUserInterface} from 'src/app/shared/types/currentUser.interface';
 
-export const getCurrentUserAction = createAction(ActionTypes.GET_CURRENT_USER);
+export const getCurrentUserAction = createAction(ActionTypesAuth.GET_CURRENT_USER);
 
 export const getCurrentUserSuccessAction = createAction(
-  ActionTypes.GET_CURRENT_USER_SUCCESS,
+  ActionTypesAuth.GET_CURRENT_USER_SUCCESS,
   props<{currentUser: CurrentUserInterface}>()
 );
 
 export const getCurrentUserFailureAction = createAction(
-  ActionTypes.GET_CURRENT_USER_FAILURE
+  ActionTypesAuth.GET_CURRENT_USER_FAILURE
 );

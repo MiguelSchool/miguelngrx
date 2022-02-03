@@ -19,6 +19,7 @@ import {TagFeedModule} from 'src/app/tagFeed/tagFeed.module';
 import {ArticleModule} from './article/article.module';
 import {CreateArticleModule} from './create-article/create-article.module';
 import {UpdateArticleModule} from "./update-article/update-article.module";
+import {SettingsModule} from "./settings/settings.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,7 +41,8 @@ import {UpdateArticleModule} from "./update-article/update-article.module";
     TagFeedModule,
     CreateArticleModule, // => order here is very important!!
     ArticleModule,
-    UpdateArticleModule
+    UpdateArticleModule,
+    SettingsModule
   ],
   providers: [
     PersistanceService,

@@ -22,7 +22,7 @@ export class DeleteArticleEffectService {
       switchMap(({slug}) => {
         return this.articleService.deleteArticle(slug).pipe(
           map(() => deleteArticleActionSuccess()),
-          catchError(() => of(deleteArticleActionFailure)
+          catchError(() => of(deleteArticleActionFailure())
           ));
       })
     ));
@@ -31,7 +31,7 @@ export class DeleteArticleEffectService {
   redirectAfterDelete$ = createEffect(() =>
       this.actions$.pipe(
         ofType(deleteArticleActionSuccess),
-        tap(() => this.router.navigateByUrl('/'))
+        tap(() => this.router.navigate(['/']))
       ),
     {dispatch: false});
 }
