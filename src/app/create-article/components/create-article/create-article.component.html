@@ -1,0 +1,6 @@
+<mc-article-forms *ngIf="initialValues"
+  [initialValues]="initialValues"
+  [isSubmitting]="isSubmitting$|async"
+  [errors]="(backendErrors$|async)"
+  (articleSubmit)="onSubmit($event)">
+</mc-article-forms>
