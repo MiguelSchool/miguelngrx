@@ -1,6 +1,6 @@
 import {ArticleStateInterface} from '../../types/articleStateInterface';
 import {Action, createReducer, on} from '@ngrx/store';
-import {articleAction, articleActionFailure, articleActionsSuccess} from '../actions/articleAction';
+import {getArticleAction, getArticleActionFailure, getArticleActionsSuccess} from '../actions/articleAction';
 
 
 const initialState: ArticleStateInterface = {
@@ -12,7 +12,7 @@ const initialState: ArticleStateInterface = {
 const articleReducer = createReducer(
   initialState,
   on(
-    articleAction,
+    getArticleAction,
     (state): ArticleStateInterface => ({
       ...state,
       isLoading: true
@@ -20,7 +20,7 @@ const articleReducer = createReducer(
   ),
 
   on(
-    articleActionsSuccess,
+    getArticleActionsSuccess,
     (state, action): ArticleStateInterface  => ({
       ...state,
       isLoading: false,
@@ -29,7 +29,7 @@ const articleReducer = createReducer(
   ),
 
   on(
-    articleActionFailure,
+    getArticleActionFailure,
     (state, action) => ({
       ...state,
       isLoading: false

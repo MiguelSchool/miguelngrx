@@ -8,7 +8,7 @@ import {environment} from '../../../environments/environment';
 import {ArticleResponseInterface} from '../types/ArticleResponseInterface';
 
 @Injectable()
-export class ArticleService {
+export class SharedArticleService {
 
   constructor(private http: HttpClient) { }
 

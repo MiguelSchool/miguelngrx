@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -17,6 +17,8 @@ import {GlobalFeedModule} from './globalFeed/globalFeed.module';
 import {YourFeedModule} from './yourFeed/yourFeed.module';
 import {TagFeedModule} from 'src/app/tagFeed/tagFeed.module';
 import {ArticleModule} from './article/article.module';
+import {CreateArticleModule} from './create-article/create-article.module';
+import {UpdateArticleModule} from "./update-article/update-article.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,7 +38,9 @@ import {ArticleModule} from './article/article.module';
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
-    ArticleModule
+    CreateArticleModule, // => order here is very important!!
+    ArticleModule,
+    UpdateArticleModule
   ],
   providers: [
     PersistanceService,
