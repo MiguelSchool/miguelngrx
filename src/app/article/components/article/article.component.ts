@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {select, Store} from '@ngrx/store';
-import {articleAction} from '../../store/actions/articleAction';
+import {deleteArticleAction, getArticleAction} from '../../store/actions/articleAction';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleInterface} from '../../../shared/types/article.interface';
-import {combineLatest, Observable, Subscription} from 'rxjs';
-import {articleSelector, isLoadingSelector, errorSelector} from '../../store/selectors';
-import {currentUserSelector} from "../../../auth/store/selectors";
-import {map} from "rxjs/operators";
-import {CurrentUserInterface} from "../../../shared/types/currentUser.interface";
+import {combineLatest, Observable} from 'rxjs';
+import {articleSelector, errorSelector, isLoadingSelector} from '../../store/selectors';
+import {currentUserSelector} from '../../../auth/store/selectors';
+import {map} from 'rxjs/operators';
+import {CurrentUserInterface} from '../../../shared/types/currentUser.interface';
 
 @Component({
   selector: 'mc-feed',
@@ -34,7 +34,7 @@ export class ArticleComponent implements OnInit {
   }
 
   private fetchData(): void {
-    this.store.dispatch(articleAction({slug: this.slug}));
+    this.store.dispatch(getArticleAction({slug: this.slug}));
   }
 
   private initializeValues(): void {
@@ -53,5 +53,8 @@ export class ArticleComponent implements OnInit {
 
   private initializeListeners(): void {
       this.article$ = this.store.pipe(select(articleSelector));
+  }
+  deleteArticle(): void {
+    this.store.dispatch(deleteArticleAction({slug: this.slug}));
   }
 }
