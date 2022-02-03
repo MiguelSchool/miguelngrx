@@ -5,6 +5,7 @@ import {ArticleStateInterface} from '../../article/types/articleStateInterface';
 import {CreateArticleState} from '../../create-article/shared/types/createArticleState';
 import {EditArticleStateInterface} from '../../update-article/shared/types/editArticleStateInterface';
 import {SettingsStateInterface} from '../../settings/types/SettingsState';
+import {UserProfileStateInterface} from "../../user-profile/types/UserProfileStateInterface";
 
 export interface AppStateInterface {
   auth: AuthStateInterface;
@@ -14,4 +15,5 @@ export interface AppStateInterface {
   createArticle: CreateArticleState;
   updateArticle: EditArticleStateInterface;
   settings: SettingsStateInterface;
+  userProfile: UserProfileStateInterface;
 }

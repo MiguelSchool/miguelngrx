@@ -1,1 +1,37 @@
-<p>settings works!</p>
+<div class="settings-page" *ngIf="currentUser$ | async as currentUser">
+  <div class="container page">
+    <div class="row">
+       <div class="col-md-6 offset-md-3 col-xs-12">
+         <h2 class="text-xs-center">Settings</h2>
+         <mc-backend-error-messages *ngIf="backendErrors$|async as backendErrors" [backendErrors]="backendErrors"></mc-backend-error-messages>
+         <form [formGroup]="formGroup" (ngSubmit)="onSubmit(currentUser)">
+           <fieldset>
+             <fieldset class="form-group">
+               <input  type="text" class="form-control form-control-lg" formControlName="image" placeholder="URL of profile picture"/>
+             </fieldset>
+             <fieldset class="form-group">
+               <input  type="text" class="form-control form-control-lg" formControlName="username" placeholder="username"/>
+             </fieldset>
+             <fieldset class="form-group">
+               <textarea  class="form-control form-control-lg" formControlName="bio" placeholder="short biography about you"></textarea>
+             </fieldset>
+             <fieldset class="form-group">
+             <input  type="text" class="form-control form-control-lg" formControlName="email" placeholder="email"/>
+           </fieldset>
+             <fieldset class="form-group">
+               <input  type="text" class="form-control form-control-lg" formControlName="password" placeholder="new password"/>
+             </fieldset>
+             <button type="submit" class="btn btn-lg btn-primary pull-xs-right" [disabled]="this.formGroup.invalid || (isSubmitting$ |async)">
+               update settings
+             </button>
+           </fieldset>
+         </form>
+         <hr />
+         <button class="btn btn-outline-danger"
+                 (click)="logout()">
+           logout
+         </button>
+       </div>
+    </div>
+  </div>
+</div>

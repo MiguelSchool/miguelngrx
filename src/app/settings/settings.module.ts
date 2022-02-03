@@ -4,6 +4,9 @@ import {RouterModule, Routes} from '@angular/router';
 import { SettingsComponent } from './components/settings/settings.component';
 import {StoreModule} from '@ngrx/store';
 import {settingsReducer} from './store/reducers/settingsReducers';
+import {BackendErrorMessagesModule} from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
+import {ReactiveFormsModule} from '@angular/forms';
+
 
 
 const routes: Routes = [
@@ -19,7 +22,9 @@ const routes: Routes = [
     CommonModule,
     // if there are not many routes i can do this... but I think a file for routes are better than this
     RouterModule.forChild(routes),
-    StoreModule.forFeature('settings', settingsReducer)
+    StoreModule.forFeature('settings', settingsReducer),
+    BackendErrorMessagesModule,
+    ReactiveFormsModule
   ]
 })
 export class SettingsModule { }

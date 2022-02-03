@@ -1,0 +1,8 @@
+<button mat-icon-button class="color" (click)="onHandleLike()" *ngIf="isFavorite">
+  <mat-icon>favorite</mat-icon>
+  <span>{{this.favoriteCount}}</span>
+</button>
+<button mat-icon-button class="color" (click)="onHandleLike()" *ngIf="!isFavorite">
+  <mat-icon>favorite_border</mat-icon><span></span>
+  <span>{{this.favoriteCount}}</span>
+</button>

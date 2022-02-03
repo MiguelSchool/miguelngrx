@@ -22,8 +22,7 @@ export class CreateArticleEffectsService {
     switchMap(({articleInput}) => {
       return this.createArticleService.createArticle(articleInput).pipe(
         map((article: ArticleInterface) => {
-          console.log(article)
-          return createArticleActionSuccess({article})
+          return createArticleActionSuccess({article});
         }),
         catchError((errorResponse: HttpErrorResponse) =>
           of(createArticleActionFailure({errors: errorResponse.error.errors})))

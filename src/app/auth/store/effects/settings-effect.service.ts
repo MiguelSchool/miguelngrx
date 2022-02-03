@@ -11,9 +11,7 @@ import {CurrentUserInterface} from '../../../shared/types/currentUser.interface'
 import {of} from 'rxjs';
 import {HttpErrorResponse} from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SettingsEffectService {
 
   constructor(

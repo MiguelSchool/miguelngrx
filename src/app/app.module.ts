@@ -18,13 +18,18 @@ import {YourFeedModule} from './yourFeed/yourFeed.module';
 import {TagFeedModule} from 'src/app/tagFeed/tagFeed.module';
 import {ArticleModule} from './article/article.module';
 import {CreateArticleModule} from './create-article/create-article.module';
-import {UpdateArticleModule} from "./update-article/update-article.module";
-import {SettingsModule} from "./settings/settings.module";
+import {UpdateArticleModule} from './update-article/update-article.module';
+import {SettingsModule} from './settings/settings.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {UserProfileModule} from "./user-profile/user-profile.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatIconModule,
     HttpClientModule,
     AppRoutingModule,
     AuthModule,
@@ -42,7 +47,8 @@ import {SettingsModule} from "./settings/settings.module";
     CreateArticleModule, // => order here is very important!!
     ArticleModule,
     UpdateArticleModule,
-    SettingsModule
+    SettingsModule,
+    UserProfileModule
   ],
   providers: [
     PersistanceService,

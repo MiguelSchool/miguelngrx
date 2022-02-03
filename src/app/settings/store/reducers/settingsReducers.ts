@@ -29,6 +29,7 @@ const settingsReducers = createReducer(
   on(
     updateCurrentUSerActionFailure,
     (state, action): SettingsStateInterface => ( {
+      ...state,
       isSubmitting: false,
       validationErrors: action.error
     })
