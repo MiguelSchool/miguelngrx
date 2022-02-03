@@ -22,9 +22,9 @@ export const deleteArticleAction = createAction(
 );
 
 export const deleteArticleActionSuccess = createAction(
-  ActionTypes.GET_ARTICLE_SUCCESS
+  ActionTypes.DELETE_ARTICLE_SUCCESS
 );
 
 export const deleteArticleActionFailure = createAction(
-  ActionTypes.GET_ARTICLE_FAILURE
+  ActionTypes.DELETE_ARTICLE_FAILURE
 );
